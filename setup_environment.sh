@@ -15,11 +15,11 @@ case $CUDA_VERSION in
     10.2)
         pip install torch torchvision torchaudio -f https://download.pytorch.org/whl/cu102/torch_stable.html
         ;;
-    11.1)
-        pip install torch torchvision torchaudio -f https://download.pytorch.org/whl/cu111/torch_stable.html
+    11.8)
+        pip install torch torchvision torchaudio -f https://download.pytorch.org/whl/cu118/torch_stable.html
         ;;
-    12.1)
-        pip install torch torchvision torchaudio -f https://download.pytorch.org/whl/cu121/torch_stable.html
+    12.4)
+        pip install torch torchvision torchaudio -f https://download.pytorch.org/whl/cu124/torch_stable.html
         ;;
     *)
         echo "CUDA version $CUDA_VERSION is not supported. Exiting."
