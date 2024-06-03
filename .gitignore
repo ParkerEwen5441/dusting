@@ -145,7 +145,7 @@ venv.bak/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
+# Pyre type checkerhttps://github.com/nerlfield/gaussian-splatting/tree/2834f4c1beb5afcf803e8149c82f428631d458cb
 .pyre/
 
 # pytype static type analyzer
@@ -163,5 +163,3 @@ cython_debug/
 
 render/
 data/
-gaussian_splatting/
-dust3r/
