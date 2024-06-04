@@ -1,5 +1,5 @@
 import sys
-sys.path.append('gaussian_splatting')
+sys.path.append('../submodules/gaussian-splatting')
 
 from os import makedirs
 from utils.graphics_utils import focal2fov, fov2focal, getProjectionMatrix
@@ -23,17 +23,23 @@ from dataclasses import dataclass, field
 
 @dataclass
 class ModelParams:
-    sh_degree: int = 3
-    source_path: str = "data/scenes/turtle"
-    model_path: str = ""
-    images: str = "images"
-    resolution: int = -1
-    white_background: bool = True
-    data_device: str = "cuda"
-    eval: bool = False
+    def __init__(self):
+        self.sh_degree: int = 3
+        self.source_path: str = "../data/scenes/turtle"
+        self.model_path: str = self.get_output_folder()
+        self.images: str = "images"
+        self.resolution: int = -1
+        self.white_background: bool = True
+        self.data_device: str = "cuda"
+        self.eval: bool = False
 
     def post_init(self):
         self.source_path = os.path.abspath(self.source_path)
+
+    def get_output_folder(self):
+        all_subdirs = [os.path.abspath(os.path.join('../output', d)) for d in os.listdir(os.path.abspath('../output/')) 
+                            if os.path.isdir(os.path.abspath(os.path.abspath(os.path.join('../output', d))))]
+        return max(all_subdirs, key=os.path.getmtime)
 
 @dataclass
 class PipelineParams:

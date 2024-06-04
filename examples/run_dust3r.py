@@ -12,8 +12,8 @@ from typing import NamedTuple, Optional
 from dataclasses import dataclass, field
 
 # Import submodules
-sys.path.append('submodules/dust3r')
-sys.path.append('submodules/gaussian_splatting')
+sys.path.append('../submodules/dust3r')
+sys.path.append('../submodules/gaussian-splatting')
 
 from dust3r.inference import inference, load_model                  #
 from dust3r.utils.image import load_images                          #
@@ -33,15 +33,15 @@ class UtilParams:
     def __init__(self):
         # General Parameters
         self.device: str = "cuda:0"
-        self.save_dir = Path('data/scenes/turtle')
-        self.image_dir: str = "data/images/turtle_imgs/"
+        self.save_dir = Path('../data/scenes/turtle')
+        self.image_dir: str = "../data/images/turtle_imgs/"
 
         # DUST3R Parameters
         self.lr: float = 0.01
         self.niter: int = 300
         self.batch_size: int = 1
         self.schedule: str = "cosine"
-        self.model_path: str = "submodules/dust3r/checkpoints/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth"
+        self.model_path: str = "../submodules/dust3r/checkpoints/DUSt3R_ViTLarge_BaseDecoder_512_dpt.pth"
 
         # Gaussian Splatting Parameters
         self.min_conf_thr: int = 20
@@ -145,19 +145,19 @@ class DUST3R():
 
         # Construct the header of the PLY file
         header = """ply
-        format ascii 1.0
-        element vertex {}
-        property float x
-        property float y
-        property float z
-        property uchar red
-        property uchar green
-        property uchar blue
-        property float nx
-        property float ny
-        property float nz
-        end_header
-        """.format(len(vertices))
+format ascii 1.0
+element vertex {}
+property float x
+property float y
+property float z
+property uchar red
+property uchar green
+property uchar blue
+property float nx
+property float ny
+property float nz
+end_header
+""".format(len(vertices))
 
         # Write the PLY file
         save_path = data.sparse_path / 'points3D.ply'
