@@ -76,5 +76,6 @@ opt = OptimizationParams()
 pipe = PipelineParams()
 args = TrainingArgs()
 
-training(dataset, opt, pipe, args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
-print("\nTraining complete.")
+if __name__ == "__main__":
+    training(dataset, opt, pipe, args.test_iterations, args.save_iterations, args.checkpoint_iterations, args.start_checkpoint, args.debug_from)
+    print("\nTraining complete.")

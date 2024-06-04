@@ -126,8 +126,9 @@ def render_path(dataset : ModelParams, iteration : int, pipeline : PipelineParam
                 renders_path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
                 )
 
-dataset = ModelParams()
-opt = OptimizationParams()
-pipe = PipelineParams()
-render_path(dataset, 7000, pipe, render_resize_method='crop')
+if __name__ == "__main__":
+    dataset = ModelParams()
+    opt = OptimizationParams()
+    pipe = PipelineParams()
+    render_path(dataset, 7000, pipe, render_resize_method='crop')
 

@@ -205,7 +205,8 @@ end_header
         
         return pct
 
-
-data = UtilParams()
-duster = DUST3R(data)
-duster.save(data)
+if __name__ == "__main__":
+    data = UtilParams()
+    duster = DUST3R(data)
+    duster.run()
+    duster.save(data)
