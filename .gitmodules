@@ -1,9 +1,9 @@
-[submodule "submodules/gaussian-splatting"]
-	path = submodules/gaussian-splatting
-	url = https://github.com/nerlfield/gaussian-splatting.git
 [submodule "submodules/dust3r"]
 	path = submodules/dust3r
 	url = https://github.com/nerlfield/dust3r.git
 [submodule "submodules/teaser"]
 	path = submodules/teaser
 	url = https://github.com/ParkerEwen5441/teaser.git
+[submodule "submodules/normalized_splatting"]
+	path = submodules/normalized_splatting
+	url = git@github.com:roahmlab/normalized_splatting.git
